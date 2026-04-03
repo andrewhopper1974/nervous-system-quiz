@@ -2,10 +2,10 @@ import { useState } from "react";
 import { profiles } from "../data/profiles";
 
 const GUMROAD_URLS = {
-  W: "https://whopperman8.gumroad.com/l/csbbc",
-  S: "https://whopperman8.gumroad.com/l/pexdsl",
-  P: "https://whopperman8.gumroad.com/l/qvszu",
-  B: "https://whopperman8.gumroad.com/l/cumto",
+  W: "https://regulateco.gumroad.com/l/csbbc",
+  S: "https://regulateco.gumroad.com/l/pexdsl",
+  P: "https://regulateco.gumroad.com/l/qvszu",
+  B: "https://regulateco.gumroad.com/l/cumto",
 };
 
 function getGumroadUrl(resultCode) {
