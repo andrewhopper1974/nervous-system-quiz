@@ -1,7 +1,17 @@
 import { useState } from "react";
 import { profiles } from "../data/profiles";
 
-const GUMROAD_URL = "https://placeholder.gumroad.com/l/nervous-system-protocol"; // replace before launch
+const GUMROAD_URLS = {
+  W: "https://whopperman8.gumroad.com/l/csbbc",
+  S: "https://whopperman8.gumroad.com/l/pexdsl",
+  P: "https://whopperman8.gumroad.com/l/qvszu",
+  B: "https://whopperman8.gumroad.com/l/cumto",
+};
+
+function getGumroadUrl(resultCode) {
+  const coreType = resultCode?.split("-")[0];
+  return GUMROAD_URLS[coreType] ?? "#";
+}
 
 const WHAT_YOU_GET = [
   "Your complete nervous system profile and what it means",
@@ -17,6 +27,7 @@ export default function ResultsPage({ resultCode, name, onRetake }) {
   const profile = profiles[resultCode];
   const firstName = name ? name.split(" ")[0] : null;
   const [copied, setCopied] = useState(false);
+  const gumroadUrl = getGumroadUrl(resultCode);
 
   // Fallback for unknown codes
   if (!profile) {
@@ -131,7 +142,7 @@ export default function ResultsPage({ resultCode, name, onRetake }) {
 
               <div className="w-full max-w-xs space-y-3">
                 <a
-                  href={GUMROAD_URL}
+                  href={gumroadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-brand-sage hover:bg-brand-sage-hover text-white font-medium text-base py-4 rounded-xl text-center transition-all duration-200 hover:shadow-lg hover:shadow-brand-sage/20 hover:-translate-y-0.5"
@@ -157,7 +168,7 @@ export default function ResultsPage({ resultCode, name, onRetake }) {
               ))}
             </ul>
             <a
-              href={GUMROAD_URL}
+              href={gumroadUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-brand-sage hover:bg-brand-sage-hover text-white font-medium text-sm py-3.5 rounded-xl text-center transition-all duration-200 hover:shadow-lg hover:shadow-brand-sage/20 mt-2"
